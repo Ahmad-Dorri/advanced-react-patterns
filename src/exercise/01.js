@@ -75,15 +75,11 @@ function useUser() {
 
 const updateUser = (dispatch, updates, user) => {
   dispatch({type: 'start update', updates})
-  userClient.updateUser(user, updates).then(
+  return userClient.updateUser(user, updates).then(
     updatedUser => dispatch({type: 'finish update', updatedUser}),
     error => dispatch({type: 'fail update', error}),
   )
 }
-
-// 🐨 add a function here called `updateUser`
-// Then go down to the `handleSubmit` from `UserSettings` and put that logic in
-// this function. It should accept: dispatch, user, and updates
 
 // export {UserProvider, useUser}
 
